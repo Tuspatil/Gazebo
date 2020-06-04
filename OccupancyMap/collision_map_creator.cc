@@ -14,6 +14,7 @@
 #include "gazebo/common/common.hh"
 #include "gazebo/msgs/msgs.hh"
 #include "gazebo/physics/physics.hh"
+#include <unistd.h>
 
   struct dimensions{
     int topleft_x;
@@ -34,6 +35,7 @@ namespace gazebo
 class CollisionMapCreator : public WorldPlugin
 {
     physics::WorldPtr world;
+    transport::NodePtr node;
   public: void Load(physics::WorldPtr _parent, sdf::ElementPtr _sdf)
   {
   	world = _parent;
@@ -65,7 +67,7 @@ class CollisionMapCreator : public WorldPlugin
     }
     double x,y;
 
-    boost::gil::gray8_pixel_t fill(255); //hardcode
+    boost::gil::gray8_pixel_t fill(255-255); //hardcode
     boost::gil::gray8_pixel_t blank(255);
     boost::gil::gray8_image_t image(count_horizontal, count_vertical);
 
