@@ -9,4 +9,3 @@ include_directories(${GAZEBO_INCLUDE_DIRS})
 link_directories(${GAZEBO_LIBRARY_DIRS})
 add_library(collision_map_creator SHARED collision_map_creator.cc)
 target_link_libraries(collision_map_creator ${GAZEBO_LIBRARIES})
-Hi this is VS typinghfgng
